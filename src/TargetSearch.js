@@ -263,10 +263,15 @@ Openphacts.TargetSearch.prototype.parseTargetResponse = function(response) {
 	$.each(response.primaryTopic[constants.EXACT_MATCH], function(i, exactMatch) {
         var src = exactMatch[constants.IN_DATASET];
 	var targetForDrug = exactMatch[constants.TARGET_FOR_DRUG];
+	var drugs = [];
+	if (targetForDrug != null) {
 	if $.isArray(targetForDrug) {
-
+            $.each(targetForDrug, function(index, drug) {
+                drugs.push({"name": drug.genericName, "url": drug[constants.ABOUT], "type": drug.drug_type});
+	    });
 	} else {
-
+               drugs.push({"name": targetForDrug.genericName, "url": targetForDrug[constants.ABOUT], "type": targetForDrug.drug_type});
+	}
 	}
 		if (src) {
 			if (constants.SRC_CLS_MAPPINGS[src] == 'drugbankValue') {
