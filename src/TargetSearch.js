@@ -265,7 +265,7 @@ Openphacts.TargetSearch.prototype.parseTargetResponse = function(response) {
 	var targetForDrug = exactMatch[constants.TARGET_FOR_DRUG];
 	var drugs = [];
 	if (targetForDrug != null) {
-	if $.isArray(targetForDrug) {
+	if ($.isArray(targetForDrug)) {
             $.each(targetForDrug, function(index, drug) {
                 drugs.push({"name": drug.genericName, "url": drug[constants.ABOUT], "type": drug.drug_type});
 	    });
