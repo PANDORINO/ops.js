@@ -15,6 +15,7 @@ Openphacts.TargetSearch = function TargetSearch(baseURL, appID, appKey) {
 /**
  * Fetch the target represented by the URI provided.
  * @param {string} URI - The URI for the target of interest.
+ * @param {string} drugType - One of: 'approved', 'biotech', 'experimental', 'illicit', 'investigational', 'nutraceutical', 'smallMolecule', 'withdrawn'.
  * @param {string} [lens] - An optional lens to apply to the result.
  * @param {requestCallback} callback - Function that will be called with the result. 
  * @method
@@ -25,13 +26,14 @@ Openphacts.TargetSearch = function TargetSearch(baseURL, appID, appKey) {
  * };  
  * searcher.fetchTarget('http://www.conceptwiki.org/concept/b932a1ed-b6c3-4291-a98a-e195668eda49', null, callback);
  */
-Openphacts.TargetSearch.prototype.fetchTarget = function(URI, lens, callback) {
+Openphacts.TargetSearch.prototype.fetchTarget = function(URI, drugType, lens, callback) {
     params={};
     params['_format'] = "json";
     params['app_key'] = this.appKey;
     params['app_id'] = this.appID;
     params['uri'] = URI;
     lens ? params['lens'] = lens : '';
+    drugType ? params['drug_type'] = drugType : ''
 	var targetQuery = $.ajax({
 		url: this.baseURL + '/target',
         dataType: 'json',
@@ -260,6 +262,12 @@ Openphacts.TargetSearch.prototype.parseTargetResponse = function(response) {
     var label = response.primaryTopic[constants.PREF_LABEL];
 	$.each(response.primaryTopic[constants.EXACT_MATCH], function(i, exactMatch) {
         var src = exactMatch[constants.IN_DATASET];
+	var targetForDrug = exactMatch[constants.TARGET_FOR_DRUG];
+	if $.isArray(targetForDrug) {
+
+	} else {
+
+	}
 		if (src) {
 			if (constants.SRC_CLS_MAPPINGS[src] == 'drugbankValue') {
 				drugbankData = exactMatch;

@@ -56,3 +56,4 @@ Openphacts.Constants.prototype.RELEVANCE = 'relevance';
 Openphacts.Constants.prototype.PATHWAY_COUNT = 'pathway_count';
 Openphacts.Constants.prototype.MOLWT = 'molweight';
 Openphacts.Constants.prototype.EBILINK = 'http://www.ebi.ac.uk';
+Openphacts.Constants.prototype.TARGET_FOR_DRUG = 'targetForDrug';

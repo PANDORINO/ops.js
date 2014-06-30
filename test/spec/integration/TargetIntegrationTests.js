@@ -55,7 +55,7 @@ describe("Target search", function() {
         expect(this_result.URI).toBeDefined();
       });
 
-      searcher.fetchTarget('http://www.conceptwiki.org/concept/b932a1ed-b6c3-4291-a98a-e195668eda49', null, callback);
+      searcher.fetchTarget('http://www.conceptwiki.org/concept/b932a1ed-b6c3-4291-a98a-e195668eda49', null, null, callback);
     });
     it("and use a chembl uri as input", function() {
       var this_success = null;
@@ -100,7 +100,7 @@ describe("Target search", function() {
         expect(this_result.chemblItems).toBeDefined();
       });
 
-      searcher.fetchTarget('http://rdf.ebi.ac.uk/resource/chembl/target/CHEMBL1075146', null, callback);
+      searcher.fetchTarget('http://rdf.ebi.ac.uk/resource/chembl/target/CHEMBL1075146', null, null, callback);
     });
 
     it("and handle errors", function() {
@@ -121,7 +121,7 @@ describe("Target search", function() {
         expect(this_status).toBe(404);
       });
 
-      searcher.fetchTarget('http://www.conceptwiki.org/concept/876876876', null, callback);
+      searcher.fetchTarget('http://www.conceptwiki.org/concept/876876876', null, null, callback);
     });
   });
 
