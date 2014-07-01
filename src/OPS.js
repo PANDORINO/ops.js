@@ -44,6 +44,11 @@ var Openphacts = Openphacts || {};
  * @property {string} chemblProvenance - chemblProvenance
  */
 /**
+ * Contains data for a compound fetched with {@link Openphacts.CompoundSearch#fetchCompounds}
+ * @typedef {Array.<FetchCompoundResponse>} FetchCompoundsResponse
+ */
+
+/**
  * An array of pharmacology records for a compound returned from {@link Openphacts.CompoundSearch#compoundPharmacology}
  * @typedef {Array.<Object>} FetchCompoundPharmacologyResponse
  * @property {string} compoundInchikey - compound_inchikey
@@ -122,6 +127,13 @@ var Openphacts = Openphacts || {};
  * @property {string} drugbankProvenance - drugbankProvenance
  * @property {string} uniprotProvenance - uniprotProvenance
  * @property {string} conceptwikiProvenance - conceptwikiProvenance
- * @property {Object} targetForDrugs - targetForDrugs
+ * @property {TargetForDrugs} targetForDrugs - targetForDrugs
+ */
+/**
+ * Drugs associated with a particular target.
+ * @typedef {Object} TargetForDrugs
+ * @property {string} name - Generic name of the drug
+ * @property {string} url - URL where the drug information came from
+ * @property {Array.<string>} type - The drug types eg. 'approved', 'small molecule', 'investigational'
  */
 

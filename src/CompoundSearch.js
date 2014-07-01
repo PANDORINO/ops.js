@@ -409,7 +409,7 @@ Openphacts.CompoundSearch.prototype.parseCompoundResponse = function(response) {
 /**
  * Parse the results from {@link Openphacts.CompoundSearch#fetchCompounds}
  * @param {Object} response - the JSON response from {@link Openphacts.CompoundSearch#fetchCompounds}
- * @returns {FetchCompoundsResponse} Containing the flattened response
+ * @returns {FetchCompoundsResponse} A list of compounds and their values
  * @method
  */
 Openphacts.CompoundSearch.prototype.parseCompoundsResponse = function(response) {
