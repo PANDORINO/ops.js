@@ -44,7 +44,7 @@ var Openphacts = Openphacts || {};
  * @property {string} chemblProvenance - chemblProvenance
  */
 /**
- * Contains data for a compound fetched with {@link Openphacts.CompoundSearch#fetchCompounds}
+ * Compounds fetched with {@link Openphacts.CompoundSearch#fetchCompounds}
  * @typedef {Array.<FetchCompoundResponse>} FetchCompoundsResponse
  */
 
@@ -127,8 +127,13 @@ var Openphacts = Openphacts || {};
  * @property {string} drugbankProvenance - drugbankProvenance
  * @property {string} uniprotProvenance - uniprotProvenance
  * @property {string} conceptwikiProvenance - conceptwikiProvenance
- * @property {TargetForDrugs} targetForDrugs - targetForDrugs
+ * @property {Array.<TargetForDrugs>} targetForDrugs - targetForDrugs
  */
+/**
+ * Targets fetched with {@link Openphacts.TargetSearch#fetchTargets}
+ * @typedef {Array.<FetchTargetResponse>} FetchTargetsResponse
+ */
+
 /**
  * Drugs associated with a particular target.
  * @typedef {Object} TargetForDrugs
