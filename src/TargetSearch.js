@@ -260,6 +260,11 @@ Openphacts.TargetSearch.prototype.parseTargetResponse = function(response) {
 	var seeAlso = [];
     var chemblItems = [];
     var label = response.primaryTopic[constants.PREF_LABEL];
+    if (label == null) {
+	    //might not be a cw block but could be a generic label
+label = response.primaryTopic[constants.LABEL];
+    }
+        if ($.isArray(response.primaryTopic[constants.EXACT_MATCH])) {
 	$.each(response.primaryTopic[constants.EXACT_MATCH], function(i, exactMatch) {
         var src = exactMatch[constants.IN_DATASET];
 	var targetForDrug = exactMatch[constants.TARGET_FOR_DRUG];
@@ -371,7 +376,8 @@ Openphacts.TargetSearch.prototype.parseTargetResponse = function(response) {
                   conceptwikiProvenance['prefLabel'] = conceptWikiLinkOut;
             }
 		}
-	});
+	
+	});}
 
 	return {
 		'id': id,
