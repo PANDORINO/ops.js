@@ -53,6 +53,7 @@ describe("Target search", function() {
         expect(this_result.prefLabel).toBeDefined();
         expect(this_result.chemblItems).toBeDefined();
         expect(this_result.URI).toBeDefined();
+	expect(this_result.targetForDrugs).toBeDefined();
       });
 
       searcher.fetchTarget('http://www.conceptwiki.org/concept/b932a1ed-b6c3-4291-a98a-e195668eda49', null, null, callback);

@@ -122,5 +122,6 @@ var Openphacts = Openphacts || {};
  * @property {string} drugbankProvenance - drugbankProvenance
  * @property {string} uniprotProvenance - uniprotProvenance
  * @property {string} conceptwikiProvenance - conceptwikiProvenance
+ * @property {Object} targetForDrugs - targetForDrugs
  */
 
